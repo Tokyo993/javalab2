@@ -1,0 +1,44 @@
+package com.company;
+import java.util.*;
+
+public class Main {
+    static void print_matrix_double(double matrix[][]){
+        for (int i = 0; i < matrix.length ; i++){
+            for (int j = 0; j < matrix[0].length; j++){
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+    public static void main(String args[]) {
+        int n = 3;
+        Scanner sc = new Scanner(System.in);
+        double matrix1[][] = new double[n][n];
+        double matrix2[][] = new double[n][n];
+        System.out.println("Введите элементы матрицы 1");
+        for (int i = 0; i < n ; i++){
+            for (int j = 0; j < n; j++){
+                System.out.printf("Введите эллемент матрицы [%d][%d]: ", i+1, j+1);
+                matrix1[i][j] = sc.nextDouble();
+            }
+        }
+        System.out.println("Введите элементы матрицы 2");
+        for (int i = 0; i < n ; i++){
+            for (int j = 0; j < n; j++){
+                System.out.printf("Введите эллемент матрицы [%d][%d]: ", i+1, j+1);
+                matrix2[i][j] = sc.nextDouble();
+            }
+        }
+        int len = matrix1.length;
+        double [][]new_matrix = new double[len][len];
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                for(int k = 0; k < 3; k++)
+                {
+                    new_matrix[i][j] += matrix1[i][k] * matrix2[k][j];
+                }
+            }
+        }
+        print_matrix_double(new_matrix);
+    }
+}
